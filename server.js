@@ -1,6 +1,6 @@
 // Dependancies
 const express = require("express");
-const blogSeed = require("./blogs.json");
+const indexController = require('./controllers/indexCtrls.js')
 // get .env variables
 require("dotenv").config() 
 const app = express();
@@ -20,18 +20,11 @@ app.use(express.json())
  
 // import all available routes in our /routes/index.js 
 
-app.get("/", (req, res) => {
-  res.send("Welcome to the plants emergency room");
-});
 
-//get seed data of blogs
-app.get("/seedblogs", (req, res) => {
-  // send projects via JSON
-  res.json(blogSeed);
-});
-
+app.use('/', indexController)
 
 const routes = require('./routes/index')
+app.use('/', routes) 
 
 const plantRoutes = require('./routes/plantIndex')
 app.use('/', plantRoutes)  
