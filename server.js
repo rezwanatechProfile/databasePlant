@@ -1,6 +1,6 @@
 // Dependancies
 const express = require("express");
-const indexController = require('./controllers/indexCtrls.js')
+// const indexController = require('./controllers/indexCtrls.js')
 // get .env variables
 require("dotenv").config() 
 const app = express();
@@ -21,13 +21,13 @@ app.use(express.json())
 // import all available routes in our /routes/index.js 
 
 
-app.use('/', indexController)
+// app.use('/', indexController)
 
 const routes = require('./routes/index')
 app.use('/', routes) 
 
-const plantRoutes = require('./routes/plantIndex')
-app.use('/', plantRoutes)  
+// const plantRoutes = require('./routes/plantIndex')
+// app.use('/', plantRoutes)  
 
 // catch route if it doesn't match to anything we will send this response 
 app.use((req, res) => {
