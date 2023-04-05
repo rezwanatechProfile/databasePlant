@@ -1,6 +1,6 @@
 // Dependancies
 const express = require("express");
-// const indexController = require('./controllers/indexCtrls.js')
+
 // get .env variables
 require("dotenv").config() 
 const app = express();
@@ -19,9 +19,6 @@ app.use(express.json())
 
  
 // import all available routes in our /routes/index.js 
-
-
-// app.use('/', indexController)
 
 const routes = require('./routes/index')
 app.use('/', routes) 
