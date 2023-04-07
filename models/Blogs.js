@@ -4,11 +4,12 @@ const mongoose = require("mongoose")
 // this is just a sample model for a blog post
 const BlogsSchema = new mongoose.Schema({
 	title: {type: String, required: true},
-  createdBy: {type: String},
+	name: {type: String, required: true},
+        createdBy: {type: String},
 	image: {type: String}, 
 	description: {type: String},
-  typeofplant: {type: Boolean},
-  dateFrom: {type: Date}
+        typeofplant: {type: Boolean},
+        date: {type: Date}
 })
 
 const Blogs = mongoose.model("Blogs", BlogsSchema)
