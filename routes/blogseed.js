@@ -8,7 +8,7 @@ router.get("/", (req, res) => {
 });
 
 //get seed data of blogs
-router.get("/seedblogs", (req, res) => {
+router.get("/blogs", (req, res) => {
   // send projects via JSON
   res.json(blogSeed);
 });
