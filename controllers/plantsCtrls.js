@@ -1,4 +1,4 @@
-const { page }
+const { page } = 0
 const { apikey } = process.env
 
 const getPlants = (req, res) => {
