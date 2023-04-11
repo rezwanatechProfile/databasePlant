@@ -23,7 +23,7 @@ const getPlants = (req, res) => {
 const getDetails = (req, res) => {
   const DetailsDataBase = async () => {
     // make api call and get response
-    const response = await fetch(`https://perenual.com/api/species-list?page=1&key=${apikey}&q=`);
+    const response = await fetch(`https://perenual.com/api/species-list?page=1&key=${apikey}`);
     // turn response into javascript object
     const data = await response.json();
     // set the about state to the data
