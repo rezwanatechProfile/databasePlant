@@ -6,8 +6,8 @@ const blogSeed = require('./blogseed')// import blogs route methods
 
 // URL DIRECTORY 
 
-router.use('/', blogSeed)
+// router.use('/', blogSeed)
 router.use('/blogs', blogsRoute)
-router.use('/plants', plantsRoute)
+router.use('/', plantsRoute)
 
 module.exports = router
