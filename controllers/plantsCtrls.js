@@ -1,9 +1,10 @@
-
+const { page } = 1
+const { apikey } = process.env
 
 const getPlants = (req, res) => {
   const PlantDataBase = async () => {
     // make api call and get response
-    const response = await fetch('https://perenual.com/api/species-list?page=${page}&key=sk-pdyK642b684e0b8c3421');
+    const response = await fetch(`https://perenual.com/api/species-list?page=${page}&key=${apikey}`);
     // turn response into javascript object
     const data = await response.json();
     // set the about state to the data
