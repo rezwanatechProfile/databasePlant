@@ -1,10 +1,10 @@
-const { page } = 0
+
 const { apikey } = process.env
 
 const getPlants = (req, res) => {
   const PlantDataBase = async () => {
     // make api call and get response
-    const response = await fetch(`https://perenual.com/api/species-list?page=${page}&key=${apikey}`);
+    const response = await fetch(`https://perenual.com/api/species-list?page=1&key=${apikey}`);
     // turn response into javascript object
     const data = await response.json();
     // set the about state to the data
@@ -23,7 +23,7 @@ const getPlants = (req, res) => {
 const getDetails = (req, res) => {
   const DetailsDataBase = async () => {
     // make api call and get response
-    const response = await fetch('https://perenual.com/api/species/details/${id}?key=sk-WOd7643350463b93a473');
+    const response = await fetch('https://perenual.com/api/species/details/id?key=${apikey}');
     // turn response into javascript object
     const data = await response.json();
     // set the about state to the data
