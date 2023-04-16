@@ -1,5 +1,21 @@
+const express = require('express');
 const db = require('../models')
 console.log(db)
+const multer = require('multer')
+const path = require('path')
+
+
+const storage = multer.diskStorage({
+    destination: (req, file, cb) => {
+        cb(null, 'public/uploads/')
+    },
+    filename: (req, file, cb) => {
+        console.log(file)
+        cb(null, Date.now() + path.extname(file.originalname))
+    }  
+})
+
+const upload = multer({storage: storage})
 
 
 //getblogs
@@ -16,16 +32,20 @@ const getBlogs = (req, res) => {
 
 
 //create blogs
-const createBlogs = (req, res) => {
+const createBlogs = ((upload.single('image')), (req, res) => {
 	db.Blogs.create(req.body)
 	.then((createdBlog) => {
 		if(!createdBlog) {
 			res.status(404).json({message: "Cannot create Blog"})
 		} else {
+      if (req.file) {
+        createdBlog.image = req.file.filename
+        createdBlog.save()
+      }
 			res.status(201).json({data: createdBlog})
 		}
 	})
-}
+})
 
 //Update blogs
 const updateBlog = (req, res) => {
