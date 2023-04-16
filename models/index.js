@@ -16,6 +16,8 @@ mongoose.connect(DATABASE_URL, {
   
   
   module.exports = {
-    Blogs: require("./Blogs")
+    Blogs: require("./Blogs"),
+    Plants: require("./Plants")
+
   }
   
