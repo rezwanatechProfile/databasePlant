@@ -75,6 +75,6 @@ const deletePlant = (req, res) => {
 module.exports = {
 	getSickPlants,
 	createPlants,
-	updateBlog,
+	updatePlant,
 	deletePlant
 }

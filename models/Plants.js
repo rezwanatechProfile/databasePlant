@@ -10,6 +10,6 @@ const PlantsSchema = new mongoose.Schema({
   date: { type: Date },
 });
 
-const Plants = mongoose.model("Blogs", PlantsSchema);
+const Plants = mongoose.model("Plants", PlantsSchema);
 
 module.exports = Plants;
