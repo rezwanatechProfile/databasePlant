@@ -1,5 +1,6 @@
 // Dependancies
 const express = require("express");
+const fileUpload = require('express-fileupload')
 
 // get .env variables
 require("dotenv").config() 
@@ -12,6 +13,7 @@ const cors = require("cors");
 app.use(cors('*')); // makes sure that we don't get cors errors when our react app makes a request to our express app
 app.use(express.urlencoded({extended: true})) //req.body
 app.use(express.json())
+app.use(fileUpload())
 
 // app.get("/", (req, res) => {
 //     res.send("Listening..");

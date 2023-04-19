@@ -1,5 +1,8 @@
 const router = require('express').Router()
-const { blogsCtrl } = require('../controllers') //all of our methods inside of controllers/index.js 
+const { blogsCtrl } = require('../controllers')
+
+
+//all of our methods inside of controllers/index.js 
 
 // ROUTES - METHODS // 
 router.get('/', blogsCtrl.getBlogs)
