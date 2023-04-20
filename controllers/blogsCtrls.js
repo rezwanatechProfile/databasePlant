@@ -1,8 +1,8 @@
 const express = require('express');
 const db = require('../models')
 console.log(db)
-const multer = require('multer')
-const path = require('path')
+// const multer = require('multer')
+// const path = require('path')
 
 
 // const storage = multer.diskStorage({
@@ -49,26 +49,8 @@ const getBlogs = (req, res) => {
 
 
 //create blogs
-const createBlogs = ((req, res) => {
+const createBlogs = (req, res) => {
 
-
-  // try {
-  //   const createdBlog = await db.Blogs.create(req.body);
-  //   console.log(req.file)
-  //   if (createdBlog) {
-  //     res.status(201).json({ data: createdBlog });
-  //     if (req.file) {
-  //       createdBlog.img = req.file.path
-  //       console.log(createdBlog.img);
-  //       await createdBlog.save();
-  //     }
-  //   }
-
-  //   // If an image was uploaded, update the img property for the created Blog
-  // } catch (error) {
-  //   console.log(error);
-  //   res.status(404).json({ message: "Cannot create Blog" });
-  // }
 
 	db.Blogs.create(req.body)
 	.then((createdBlog) => {
@@ -84,7 +66,7 @@ const createBlogs = ((req, res) => {
 		}
 	})
  
-})
+}
 
 //Update blogs
 const updateBlog = (req, res) => {
@@ -97,6 +79,25 @@ const updateBlog = (req, res) => {
 		}
 	})
 }
+
+const showBlog = (req, res) => {
+  db.Blogs.findById(req.params.id, req.body, { new: true }).then(
+    (foundBlog) => {
+      if (!foundBlog) {
+        res.status(400).json({ message: "Cannot update Blog" });
+      } else {
+        db.Comments.create(req.body).then((createdComments) => {
+          if (!createdComments) {
+            res.status(404).json({ message: "Cannot create Comments" });
+          } else {
+            res.status(201).json({ data: createdComments });
+          }
+        });
+      }
+    }
+  );
+};
+
 
 
 //delete blogs
@@ -115,5 +116,6 @@ module.exports = {
 	getBlogs,
 	createBlogs,
 	updateBlog,
-	deleteBlog
+	deleteBlog,
+  showBlog,
 }

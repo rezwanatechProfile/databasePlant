@@ -1,7 +1,7 @@
 const router = require('express').Router()
 const blogsRoute = require('./blogsRoutes')
 const plantsRoute = require('./plantsRoutes')
-const sickPlantRoute = require('./sickPlantRoute')// import blogs route methods 
+const commentsRoute = require('./commentsRoute')// import blogs route methods 
 
 
 // URL DIRECTORY 
@@ -9,7 +9,7 @@ const sickPlantRoute = require('./sickPlantRoute')// import blogs route methods
 // router.use('/', blogSeed)
 router.use('/', plantsRoute)
 router.use('/blogs', blogsRoute)
-router.use('/plants', sickPlantRoute)
+router.use('/comments', commentsRoute)
 
 
 module.exports = router
