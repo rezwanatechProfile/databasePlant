@@ -8,7 +8,7 @@ const { blogsCtrl } = require('../controllers')
 router.get('/', blogsCtrl.getBlogs)
 router.post('/', blogsCtrl.createBlogs)
 router.put('/:id', blogsCtrl.updateBlog)
-router.post('/:id/show', blogsCtrl.showBlog)
+router.post('/:id', blogsCtrl.showBlog)
 router.delete('/:id', blogsCtrl.deleteBlog)
 
 
