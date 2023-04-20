@@ -117,5 +117,6 @@ module.exports = {
 	createBlogs,
 	updateBlog,
 	deleteBlog,
-  showBlog,
+  showBlog
+
 }
